@@ -45,7 +45,7 @@ var pulses = {
       '.': '.-.-.-',
       ',': '--..--',
       '?': '..--..',
-      ' ': '_'
+      ' ': '_' // Hack para representar espacios entre palabras
     };
 
 function morsify(text) {
@@ -59,6 +59,10 @@ function morsify(text) {
 
 function pulsify(code) {
   return code
+      .trim()
+    // Juntar el espacio después de la última letra
+    // con el espacio antes de la siguiente palabra
+      .replace(/ _ /, '_')
       .split('')
       .map(function (char) {
         return pulses[char];
