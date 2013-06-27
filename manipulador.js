@@ -1,9 +1,9 @@
 var pulses = {
       ".": {id: 'dot', label: 'dit', signal: 'hi', duration: 1},
       "-": {id: 'dash', label: 'dah', signal: 'hi', duration: 3},
-      "·": {id: 'inter-element-silence', label: ' ', signal: 'low', duration: 1},
-      " ": {id: 'inter-character-silence', label: '   ', signal: 'low', duration: 3},
-      "_": {id: 'inter-word-silence', label: '       ', signal: 'low', duration: 7}
+      "·": {id: 'inter-element-silence', label: '-', signal: 'low', duration: 1},
+      " ": {id: 'inter-character-silence', label: ' ', signal: 'low', duration: 3},
+      "_": {id: 'inter-word-silence', label: ', ', signal: 'low', duration: 7}
     },
     codes = {
       a: '.-',
@@ -46,6 +46,21 @@ var pulses = {
       '.': '.-.-.-',
       ',': '--..--',
       '?': '..--..',
+      '\'': '.----.',
+      '!': '-.-.--',
+      '/': '-..-.',
+      '(': '-.--.',
+      ')': '-.--.-',
+      '&': '.-...',
+      ':': '---...',
+      ';': '-.-.-.',
+      '=': '-...-',
+      '+': '.-.-.',
+      '-': '-....-',
+      '_': '..--.-',
+      '"': '.-..-.',
+      '$': '...-..-',
+      '@': '.--.-.',
       ' ': ' '
     };
 
@@ -105,14 +120,13 @@ process.stdin.on('data', function (key) {
 
 function terminar(texto, morse, morseCodes) {
   process.stdout.write('\n\nEsto es lo que has escrito:\n');
-  process.stdout.write(texto + '\n\n');
+  process.stdout.write(texto);
   process.stdout.write('\n\nEn morse sería esto:\n');
-  process.stdout.write(morse + '\n\n');
+  process.stdout.write(morse);
   process.stdout.write('\n\nEn pulsos sería esto:\n');
   pulsify(morseCodes).forEach(function (pulse) {
     process.stdout.write(pulse.label);
   });
-
   process.stdout.write("\n");
   process.exit();
 }
