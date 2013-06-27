@@ -2,7 +2,7 @@ var pulses = {
       ".": {id: 'dot', label: 'dit', signal: 'hi', duration: 1},
       "-": {id: 'dash', label: 'dah', signal: 'hi', duration: 3},
       "·": {id: 'inter-element-silence', label: ' ', signal: 'low', duration: 1},
-      " ": {id: 'inter-character-silence', label: '   ', signal: 'low', duration: 1},
+      " ": {id: 'inter-character-silence', label: '   ', signal: 'low', duration: 3},
       "_": {id: 'inter-word-silence', label: '       ', signal: 'low', duration: 7}
     },
     codes = {
