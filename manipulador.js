@@ -1,7 +1,8 @@
 var pulses = {
       ".": {signal: 'hi', duration: 1},
       "-": {signal: 'hi', duration: 3},
-      " ": {signal: 'low', duration: 1}
+      " ": {signal: 'low', duration: 1},
+      "_": {signal: 'low', duration: 3}
     },
     codes = {
       a: '.-',
@@ -44,7 +45,7 @@ var pulses = {
       '.': '.-.-.-',
       ',': '--..--',
       '?': '..--..',
-      ' ': '   '
+      ' ': '_'
     };
 
 function morsify(text) {
@@ -60,8 +61,7 @@ function pulsify(code) {
   return code
       .split('')
       .map(function (char) {
-        var pulse = pulses[char];
-        return  pulse;
+        return pulses[char];
       });
 }
 
